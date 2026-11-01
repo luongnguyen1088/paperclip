@@ -50,9 +50,10 @@ async function main(): Promise<void> {
     console.log(
       JSON.stringify({
         nativeRunnerRequired: localPaperclipRunnerSupported()
+          && (localPaperclipRunnerSupported()
           || experimental.enableNativeRunner === true
           || experimental.enableOpenAiDot === true
-          || persistedNativeRun,
+          || persistedNativeRun),
         rolloutEnabled: experimental.enableNativeRunner === true,
         dotRolloutEnabled: experimental.enableOpenAiDot === true,
         persistedNativeRun,
